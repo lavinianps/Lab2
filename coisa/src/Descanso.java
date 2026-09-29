@@ -5,5 +5,5 @@ public class Descanso {
 
     public Descanso() {
     }
-    public defineHorasDescanso(valor:)
+    public defineHorasDescanso(valor:int)
 }
