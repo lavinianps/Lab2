@@ -5,5 +5,7 @@ public class Descanso {
 
     public Descanso() {
     }
-    public defineHorasDescanso(valor: int)
+    public defineHorasDescanso(int horas): void
+    public defineNumeroSemanas(int semanas): void
+    public getStatusGeral(): String
 }
