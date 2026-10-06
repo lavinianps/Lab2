@@ -10,7 +10,13 @@ public class Disciplina {
     public void cadastraHoras(int horas) {
         this.horasEstudo += horas;
     }
-    public void cadastraNotas(int nota, double valorNota) {
+    public void cadastraNota(int nota, double valorNota) {
         this.notas[nota-1] = valorNota;
+    }
+    public boolean aprovado() {
+        double media = (this.notas[0] + this.notas[1] +
+                this.notas[2] + this.notas[3]) / 4;
+
+        return media >= 7.0;
     }
 }
