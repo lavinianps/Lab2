@@ -6,6 +6,8 @@ public class Disciplina {
 
     public Disciplina(String nomeDisciplina) {
     this.nomeDisciplina = nomeDisciplina;
+    this.notas = new double[] {0,0,0,0};
+    this.horasEstudo = 0;
     }
     public void cadastraHoras(int horas) {
         this.horasEstudo += horas;
