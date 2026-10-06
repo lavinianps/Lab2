@@ -55,7 +55,7 @@ public class Coisa {
         String[] resumos = meusResumos.pegaResumos();
 
 
-        for (int i = 0; i < meusResumos.conta(); i++) {
+        for (int i = 0; i < meusResumos.contaResumos(); i++) {
             System.out.println(resumos[i]);
         }
 

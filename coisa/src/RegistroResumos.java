@@ -11,7 +11,7 @@ public class RegistroResumos {
         this.proximo = 0;
     }
 
-    public void adicionaResumo(String tema, String conteudo) {
+    public void adiciona(String tema, String conteudo) {
         if (!temResumo(tema)) {
             this.temas[proximo] = tema;
             this.conteudos[proximo] = conteudo;

@@ -3,16 +3,18 @@ public class Descanso {
     private int horasDescanso;
     private int numeroSemanas;
 
+
     public void Descanso() {
-        horasDescanso = 0;
-        numeroSemanas = 0;
+        this.horasDescanso = 0;
+        this.numeroSemanas = 0;
     }
     public void defineHorasDescanso(int horas) {
-        numeroSemanas = horas;
+        this.horasDescanso = horas;
     }
     public void defineNumeroSemanas(int semanas) {
-        numeroSemanas = semanas;
+        this.numeroSemanas = semanas;
     }
+
     public String getStatusGeral() {
         if (numeroSemanas == 0) {
             return "cansado";

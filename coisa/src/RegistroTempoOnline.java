@@ -16,7 +16,6 @@ public class RegistroTempoOnline {
     }
     public void adicionaTempoOnline(int tempo) {
         this.tempoOnline += tempo;
-        // teste
     }
     public boolean atingiuMetaTempoOnline() {
         return tempoOnline >= tempoOnlineEsperado;
