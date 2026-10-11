@@ -5,8 +5,7 @@
  */
 public class RegistroResumos {
     private int numeroDeResumos;
-    private String[] temas;
-    private String[] conteudos;
+    private Resumo[] resumos;
     private int proximo;
 
     /**
@@ -15,8 +14,7 @@ public class RegistroResumos {
      */
     public RegistroResumos(int numeroDeResumos) {
         this.numeroDeResumos = numeroDeResumos;
-        this.temas = new String[numeroDeResumos];
-        this.conteudos = new String[numeroDeResumos];
+        this.resumos = new Resumo[numeroDeResumos];
         this.proximo = 0;
     }
 
@@ -26,10 +24,8 @@ public class RegistroResumos {
      * @param conteudo conteúdo do resumo.
      */
     public void adiciona(String tema, String conteudo) {
-        if (!temResumo(tema)) {
-            temas[proximo] = tema;
-            conteudos[proximo] = conteudo;
-
+        if (proximo < numeroDeResumos) {
+            resumos[proximo] = new Resumo(tema, conteudo);
             proximo ++;
         }
     }
@@ -39,18 +35,18 @@ public class RegistroResumos {
      * @return vetor de resumos.
      */
     public String[] pegaResumos() {
-        String[] resumos = new String[contaResumos()];
+        String[] resultado = new String[contaResumos()];
 
         int indice = 0;
 
         for (int i = 0; i < numeroDeResumos; i++) {
-            if (temas[i] != null) {
-                resumos[indice] = temas[i] + ": " + conteudos[i];
+            if (this.resumos[i] != null) {
+                resultado[indice] = this.resumos[i].getTema() + ": " + this.resumos[i].getConteudo();
                 indice++;
             }
         }
 
-        return resumos;
+        return resultado;
     }
 
     /**
@@ -59,11 +55,14 @@ public class RegistroResumos {
      * @return quantidade de resumos e seus temas.
      */
     public String imprimeResumos() {
-        String resultado = "";
+        String resultado = "- " + contaResumos()
+                + " resumo(s) cadastrado(s)\n- ";
 
-        for (int i = 0; i < numeroDeResumos; i++) {
-            if (temas[i] != null) {
-                resultado += temas[i] + ": " + conteudos[i] + "\n";
+        for (int i = 0; i < proximo; i++) {
+            resultado += resumos[i].getTema();
+
+            if (i < proximo - 1) {
+                resultado += " | ";
             }
         }
 
@@ -78,7 +77,7 @@ public class RegistroResumos {
         int quantidade = 0;
 
         for (int i = 0; i < numeroDeResumos; i++) {
-            if (temas[i] != null) {
+            if (resumos[i] != null) {
                 quantidade++;
             }
         }
@@ -88,15 +87,32 @@ public class RegistroResumos {
 
     /** Verifica se existe um resumo com um tema escolhido.
      *
-     * @param tema tema a ser procurado.
-     * @return true caso exista um resumo com o tema.
+     * @param resumo resumo a ser procurado.
+     * @return true caso exista esse resumo.
      */
     public boolean temResumo(String tema) {
         for (int i = 0; i < numeroDeResumos; i++) {
-            if (tema.equals(temas[i])) {
+            if (resumos[i] != null && resumos[i].getTema().equals(tema)) {
                 return true;
             }
         }
         return false;
+    }
+    public String[] busca(String chaveDeBusca) {
+        String chave = chaveDeBusca.toLowerCase();
+        String[] encontrados = new String[proximo];
+        int quantidade = 0;
+
+        for (int i = 0; i < proximo; i++) {
+            if (resumos[i].getConteudo().toLowerCase().contains(chave)) {
+                encontrados[quantidade] = resumos[i].getTema();
+                quantidade++;
+            }
+        }
+
+        encontrados = java.util.Arrays.copyOf(encontrados, quantidade);
+        java.util.Arrays.sort(encontrados);
+
+        return encontrados;
     }
 }

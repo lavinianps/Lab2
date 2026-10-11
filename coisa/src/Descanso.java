@@ -1,5 +1,5 @@
 /**
- *Representa a rotina de descanso de uma aluno.
+ *Representa a rotina de descanso de um aluno.
  *
  * @author Lavínia Almeida Nogueira Pereira Soares
  */
@@ -8,7 +8,11 @@ public class Descanso {
     private int horasDescanso;
     private int numeroSemanas;
 
-    public void Descanso() {
+    /**
+     * Cria um descanso.
+     * Todo descanso inicía com horas de descanso e número de semanas iguais a zero.
+     */
+    public Descanso() {
         this.horasDescanso = 0;
         this.numeroSemanas = 0;
     }
@@ -44,5 +48,9 @@ public class Descanso {
         } else {
             return "cansado";
         }
+    }
+    @Override
+    public String toString() {
+        return "Descanso: horas de descanso =" + horasDescanso + ", número de semanas =" + numeroSemanas + '.';
     }
 }

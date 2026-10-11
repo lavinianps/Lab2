@@ -21,8 +21,8 @@ public class RegistroTempoOnline {
 
     /** Cria um registro com tempo esperado específico.
      *
-     * @param nomeDisciplina nome da disciplina
-     * @param tempoOnlineEsperado tempo online esperado
+     * @param nomeDisciplina nome da disciplina.
+     * @param tempoOnlineEsperado tempo online esperado.
      */
     public RegistroTempoOnline(String nomeDisciplina, int tempoOnlineEsperado) {
         this.nomeDisciplina = nomeDisciplina;
